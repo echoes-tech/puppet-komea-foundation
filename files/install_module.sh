@@ -57,4 +57,4 @@ fi
 if [ ! -d /etc/puppet/environments/$environment ]; then
    sudo mkdir /etc/puppet/environments/$environment
 fi
-sudo puppet module install --environment $environment --modulepath /etc/puppet/environments/$1/modules --version $version $module
+sudo puppet module install --environment $environment --modulepath /etc/puppet/environments/$environement/modules --version $version $module
