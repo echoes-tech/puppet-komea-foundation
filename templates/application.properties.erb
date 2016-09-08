@@ -1,0 +1,162 @@
+# HTTP
+server.port = 8888
+management.port=8080
+server.context-path=/foundation
+
+# For authentication 2 profiles are available: internalAuth and casAuth
+spring.profiles.active=casAuth
+
+### SECURITY
+ksf.security.passwordStrength=-1
+ksf.security.allowURLRewriting=false
+ksf.security.internalRememberToken=e7b5c9d5a95157f75f7e8058256c10e1fa7a3338
+security.basic.enabled=false
+management.security.enabled=true
+
+# Plug-ins shared properties
+
+ksf.scmUrl=ssh://ksf
+#ksf.scmUrl=https://<%= @ksf_fqdn %>/redmine
+ksf.projectScmUrlPattern=%{scmUrl}/%{projectKey}.git
+ksf.git.displayedUri=ssh://git@<%= @ksf_fqdn %>:6969/%{projectKey}.git
+
+# Foreman plug-in
+ksf.foreman.url = https://<%= @ksf_fqdn %>/foreman
+ksf.foreman.username = <%= @superuser_login %>
+ksf.foreman.password = <%= @superuser_password %>
+
+ksf.puppet.modulepath = /etc/puppet/environments
+ksf.foreman.puppet.configuration.create.parameters.enabled = true
+
+ksf.foreman.host.smartProxyId = 2
+#ksf.foreman.host.puppetCa = pc-ksf.metrixware.local
+#ksf.foreman.host.puppetMaster = pc-ksf.metrixware.local
+ksf.foreman.host.computeProfileId = 5
+ksf.foreman.host.computeResourceId = 2
+ksf.foreman.host.architectureId = 1
+ksf.foreman.host.domainId = 3
+ksf.foreman.host.rootPassword = rootroot
+
+ksf.foreman.hostgroup.subnetId = 2
+ksf.foreman.hostgroup.realmId =
+ksf.foreman.hostgroup.ptableId = 54
+ksf.foreman.hostgroup.mediumId = 2
+
+ksf.foreman.hostgroup.operatingsystemId=4
+ksf.foreman.provisionMethod=image
+ksf.foreman.imageId=/var/lib/libvirt/images/debian-8-5-x86-64.2.ksf.local-disk1
+
+# Redmine plug-in
+ksf.redmine.url=https://<%= @ksf_fqdn %>/redmine
+ksf.redmine.apiAccessKey=e7b5c9d5a95157f75f7e8058256c10e1fa7a3338
+ksf.redmine.resultItemsLimit=10
+ksf.redmine.featureTrackerId=2
+ksf.redmine.featureStatusNewId=1
+ksf.redmine.featureStatusAssignedId=2
+ksf.redmine.featureStatusClosedId=5
+ksf.redmine.releaseTicketMessagePattern=%{projectName} %{releaseVersion} release
+ksf.redmine.adminUsername=<%= @superuser_login %>
+ksf.redmine.featureIds=1,2,3,4,5
+ksf.redmine.taskTrackerId=10
+
+# Jenkins plug-in
+ksf.jenkins.url=https://<%= @ksf_fqdn %>/jenkins
+ksf.jenkins.templateName=templates/job_demo.xml
+ksf.jenkins.useFolders=true
+ksf.jenkins.builsdPerJobLimit=5
+ksf.jenkins.job.releasePattern=%{projectName}-release-%{releaseVersion}
+ksf.jenkins.job.featurePattern=%{projectName}-feat-%{featureId}-%{featureDescription}
+
+# Build System
+ksf.buildSystem.defaultScript=build.sh
+
+# Artifact management
+ksf.artifacts.publishScript=publish.sh
+
+# Git plug-in
+ksf.git.workingDirectory=/var/lib/ksf/git
+ksf.git.branch.releasePattern=release-%{releaseVersion}
+ksf.git.branch.featurePattern=feat-%{featureId}-%{featureDescription}
+ksf.git.username=<%= @superuser_login %>
+ksf.git.password=
+
+# Nexus plug-in
+ksf.nexus.url=https://<%= @ksf_fqdn %>/nexus/
+
+# CQRS
+corolla.settings.cqrs.loggingEnabled=true
+corolla.settings.cqrs.profilingEnabled=true
+corolla.settings.cqrs.tracingEnabled=false
+corolla.settings.cqrs.traceFile=command.json
+corolla.settings.cqrs.asyncEventQueries=false
+
+corolla.settings.cqrs.corePoolSize=4
+corolla.settings.cqrs.maxPoolSize=-1
+corolla.settings.cqrs.queueCapacity=-1
+corolla.settings.cqrs.threadPriority=5
+corolla.settings.cqrs.keepAliveSeconds=60
+
+#MONGO
+mongo.host=localhost
+mongo.port=27017
+mongo.dbname=corolla
+
+spring.jpa.hibernate.ddl-auto=create-drop
+#spring.jpa.generate-ddl = false
+#spring.jpa.hibernate.ddl-auto = none
+
+spring.thymeleaf.check-template-location=true
+spring.thymeleaf.prefix=classpath:/templates/
+spring.thymeleaf.suffix=.html
+spring.thymeleaf.mode=XHTML
+spring.thymeleaf.encoding=UTF-8
+spring.thymeleaf.content-type=text/html
+spring.thymeleaf.cache=false
+
+spring.mvc.favicon.enabled=false
+
+logging.level.org.springframework.web=INFO
+logging.level.org.hibernate=ERROR
+
+# Central Authentication Service
+ksf.security.cas.loginUrl = https://<%= @ksf_fqdn %>/cas-overlay-1.0/login
+ksf.security.cas.logoutUrl = https://<%= @ksf_fqdn %>/cas-overlay-1.0/logout
+ksf.security.cas.prefix = https://<%= @ksf_fqdn %>/cas-overlay-1.0/
+ksf.security.cas.serviceUrl = https://<%= @ksf_fqdn %>/foundation/login/cas
+ksf.security.cas.serviceHome = https://<%= @ksf_fqdn %>/foundation
+
+# Dashboard URL
+ksf.dashboard.url=https://<%= @ksf_fqdn %>/
+ksf.dashboard.metrics.url=<%= dashboard_metrics_url %>
+ksf.dashboard.organization.url=https://<%= @ksf_fqdn %>/organization
+ksf.dashboard.timeseries.url=https://<%= @ksf_fqdn %>/timeseries/
+ksf.dashboard.customPeriod=35
+ksf.dashboard.projectType=project
+ksf.dashboard.jobType=job
+ksf.dashboard.username=<%= @superuser_login %>
+ksf.dashboard.password=<%= @superuser_password %>
+ksf.dashboard.liferay.protocol=https
+ksf.dashboard.liferay.host=<%= @ksf_fqdn %>
+ksf.dashboard.liferay.defaultTemplateName=Komea Site Template
+ksf.dashboard.liferay.defaultCompanyWebId=liferay.com
+ksf.dashboard.liferay.defaultUserGroupName=komea
+ksf.dashboard.metrics.averageTimeOnSite=true
+
+# Git plug-in
+ksf.git.branch.releasePattern=release-%{releaseVersion}
+ksf.git.branch.featurePattern=feat-%{featureId}-%{featureDescription}
+ksf.git.strictHostKeyChecking=false
+
+# Jenkins
+ksf.jenkins.job.namePattern=%{projectName}-%{branchName}
+
+ksf.redmine.hackBugApi = true
+
+ksf.foreman.puppetModuleInstallScript = /home/ksfuser/install_module.sh
+ksf.foreman.unusedIpScript = /home/ksfuser/unused_ip.sh
+
+# Allows to serve static content located in external locations
+# ksf.resources.staticLocation: list of locations separated by commas
+# ksf.resources.staticLocationsPathPatterns: list of patterns separated by commas
+#ksf.resources.staticLocations = file/:<%= @resources_static_locations %>
+ksf.resources.staticLocationsPathPatterns = /externalResources/**
