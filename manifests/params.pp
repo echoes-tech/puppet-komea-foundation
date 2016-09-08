@@ -10,4 +10,5 @@ class komea_foundation::params {
   $superuser_password = "password"
   $root_ca_content = "undef"
   $resources_static_locations = '/opt/echoes/foundation/resources/'
+  $ksf_security_internal_remember_token = "undef"
 }

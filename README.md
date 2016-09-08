@@ -32,5 +32,8 @@ The directory containing the extra static resources exposed by Foundation. Valid
 
 ##### `root_ca_content`
 
-The root CA certificate content.
+The root CA certificate content.Valid option: string. Default value: "undef".
 
+##### `ksf_security_internal_remember_token`
+
+The KSF Securtity internal remamber token. Valid option: string. Default value: "undef".

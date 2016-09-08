@@ -6,6 +6,7 @@ class komea_foundation (
   $superuser_password         = $komea_foundation::params::superuser_password,
   $root_ca_content            = $komea_foundation::params::root_ca_content,
   $resources_static_locations = $komea_foundation::params::resources_static_locations,
+  $ksf_security_internal_remember_token = $komea_foundation::params::ksf_security_internal_remember_token,
 
 ) inherits komea_foundation::params {
 
