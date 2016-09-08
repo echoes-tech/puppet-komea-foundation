@@ -59,11 +59,11 @@ class komea_foundation::install inherits komea_foundation {
   }
 
   exec { "copy_install_module":
-    command => "/usr/bin/scp ${install_module_sh} ${superuser_login}@foreman:/home/${superuser_login}",
+    command => "/usr/bin/scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ${install_module_sh} ${superuser_login}@foreman:/home/${superuser_login}",
     user => "${superuser_login}"
   } ->
   exec { "chmod_install_module":
-    command => "/usr/bin/ssh ${superuser_login}@foreman /bin/chmod 700 /home/${superuser_login}/install_module.sh",
+    command => "/usr/bin/ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ${superuser_login}@foreman /bin/chmod 700 /home/${superuser_login}/install_module.sh",
     user => "${superuser_login}"
   }
 
