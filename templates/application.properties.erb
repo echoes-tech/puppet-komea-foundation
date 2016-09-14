@@ -1,6 +1,6 @@
 # HTTP
-server.port = 8888
-management.port=8080
+server.port = <%= @server_port %>
+management.port <%= @management_port %>
 server.context-path=/foundation
 
 # For authentication 2 profiles are available: internalAuth and casAuth
@@ -16,7 +16,6 @@ management.security.enabled=true
 # Plug-ins shared properties
 
 ksf.scmUrl=ssh://ksf
-#ksf.scmUrl=https://<%= @ksf_fqdn %>/redmine
 ksf.projectScmUrlPattern=%{scmUrl}/%{projectKey}.git
 ksf.git.displayedUri=ssh://git@<%= @ksf_fqdn %>:6969/%{projectKey}.git
 
@@ -28,23 +27,21 @@ ksf.foreman.password = <%= @superuser_password %>
 ksf.puppet.modulepath = /etc/puppet/environments
 ksf.foreman.puppet.configuration.create.parameters.enabled = true
 
-ksf.foreman.host.smartProxyId = 2
-#ksf.foreman.host.puppetCa = pc-ksf.metrixware.local
-#ksf.foreman.host.puppetMaster = pc-ksf.metrixware.local
-ksf.foreman.host.computeProfileId = 5
-ksf.foreman.host.computeResourceId = 2
-ksf.foreman.host.architectureId = 1
-ksf.foreman.host.domainId = 3
-ksf.foreman.host.rootPassword = rootroot
+ksf.foreman.host.smartProxyId=<%= @foreman_host_smartProxyId %>
+ksf.foreman.host.computeProfileId=<%= @foreman_host_computeProfileId %>
+ksf.foreman.host.computeResourceId=<%= @foreman_host_computeResourceId %>
+ksf.foreman.host.architectureId=<%= @foreman_host_architectureId %>
+ksf.foreman.host.domainId=<%= @foreman_host_domainId %>
+ksf.foreman.host.rootPassword=<%= @foreman_host_defaultPassword %>
 
-ksf.foreman.hostgroup.subnetId = 2
-ksf.foreman.hostgroup.realmId =
-ksf.foreman.hostgroup.ptableId = 54
-ksf.foreman.hostgroup.mediumId = 2
+ksf.foreman.hostgroup.subnetId=<%= @foreman_hostGroup_subnetId %>
+ksf.foreman.hostgroup.realmId=<%= @foreman_hostGroup_realmId %>
+ksf.foreman.hostgroup.ptableId=<%= @foreman_hostGroup_ptableId %>
+ksf.foreman.hostgroup.mediumId=<%= @foreman_hostGroup_mediumId %>
 
-ksf.foreman.hostgroup.operatingsystemId=4
-ksf.foreman.provisionMethod=image
-ksf.foreman.imageId=/var/lib/libvirt/images/debian-8-5-x86-64.2.ksf.local-disk1
+ksf.foreman.hostgroup.operatingsystemId=<%= @foreman_hostGroup_operatingsystemId %>
+ksf.foreman.provisionMethod=<%= @foreman_provisionMethod %>
+ksf.foreman.imageId=<%= @foreman_imageId %>
 
 # Redmine plug-in
 ksf.redmine.url=https://<%= @ksf_fqdn %>/redmine
@@ -61,22 +58,23 @@ ksf.redmine.taskTrackerId=10
 
 # Jenkins plug-in
 ksf.jenkins.url=https://<%= @ksf_fqdn %>/jenkins
-ksf.jenkins.templateName=templates/job_demo.xml
-ksf.jenkins.useFolders=true
-ksf.jenkins.builsdPerJobLimit=5
-ksf.jenkins.job.releasePattern=%{projectName}-release-%{releaseVersion}
-ksf.jenkins.job.featurePattern=%{projectName}-feat-%{featureId}-%{featureDescription}
+ksf.jenkins.templateName = <%= @jenkins_job_template %>
+ksf.jenkins.sso.url=https://<%= @ksf_fqdn %>/jenkins/securityRealm/commenceLogin?from=/jenkins
+ksf.jenkins.useFolders=<%= @jenkins_use_folders %>
+ksf.jenkins.builsdPerJobLimit=<%= @jenkins_builds_per_job_limit %>
+ksf.jenkins.job.releasePattern=<%= @jenkins_job_release_pattern %>
+ksf.jenkins.job.featurePattern=<%= @jenkins_job_feature_pattern %>
 
 # Build System
-ksf.buildSystem.defaultScript=build.sh
+ksf.buildSystem.defaultScript=<%= @build_system_default_script %>
 
 # Artifact management
-ksf.artifacts.publishScript=publish.sh
+ksf.artifacts.publishScript=<%= @artifacts_publish_script %>
 
 # Git plug-in
-ksf.git.workingDirectory=/var/lib/ksf/git
-ksf.git.branch.releasePattern=release-%{releaseVersion}
-ksf.git.branch.featurePattern=feat-%{featureId}-%{featureDescription}
+ksf.git.workingDirectory=<%= @git_working_directory %>
+ksf.git.branch.releasePattern=<%= @git_branch_release_pattern %>
+ksf.git.branch.featurePattern=<%= @git_branch_feature_pattern %>
 ksf.git.username=<%= @superuser_login %>
 ksf.git.password=
 
@@ -102,8 +100,6 @@ mongo.port=27017
 mongo.dbname=corolla
 
 spring.jpa.hibernate.ddl-auto=create-drop
-#spring.jpa.generate-ddl = false
-#spring.jpa.hibernate.ddl-auto = none
 
 spring.thymeleaf.check-template-location=true
 spring.thymeleaf.prefix=classpath:/templates/

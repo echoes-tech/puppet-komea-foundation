@@ -37,3 +37,11 @@ The root CA certificate content.Valid option: string. Default value: "undef".
 ##### `ksf_security_internal_remember_token`
 
 The KSF Securtity internal remamber token. Valid option: string. Default value: "undef".
+
+##### `server_port`
+
+The application main HTTP port. Default value: "8888".
+
+##### `management_port`
+
+Default value: "8008".

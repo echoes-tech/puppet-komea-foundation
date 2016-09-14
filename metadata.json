@@ -1,6 +1,6 @@
 {
   "name": "echoes-komea_foundation",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "author": "Echoes Technologies",
   "summary": "Puppet module to manage Komea Foundation installation and configuration",
   "license": "Apache-2.0",
@@ -50,5 +50,6 @@
   ],
   "dependencies": [
     {"name":"puppetlabs/java","version_requirement":">= 1.4.3"}
+    {"name":"echoes-nexus-artifact","version_requirement":">=0.0.1"} 
   ]
 }
