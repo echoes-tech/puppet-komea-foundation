@@ -43,6 +43,9 @@ ksf.foreman.hostgroup.operatingsystemId=<%= @foreman_hostGroup_operatingsystemId
 ksf.foreman.provisionMethod=<%= @foreman_provisionMethod %>
 ksf.foreman.imageId=<%= @foreman_imageId %>
 
+ksf.foreman.puppetModuleInstallScript = /home/ksfuser/install_module.sh
+ksf.foreman.unusedIpScript = /home/ksfuser/unused_ip.sh
+
 # Redmine plug-in
 ksf.redmine.url=https://<%= @ksf_fqdn %>/redmine
 ksf.redmine.apiAccessKey=e7b5c9d5a95157f75f7e8058256c10e1fa7a3338
@@ -56,13 +59,18 @@ ksf.redmine.adminUsername=<%= @superuser_login %>
 ksf.redmine.featureIds=1,2,3,4,5
 ksf.redmine.taskTrackerId=10
 
+ksf.redmine.hackBugApi = true
+
 # Jenkins plug-in
 ksf.jenkins.url=https://<%= @ksf_fqdn %>/jenkins
 ksf.jenkins.templateName = <%= @jenkins_job_template %>
+# to be parametrized, temporarily hard-coded
+ksf.jenkins.templateFolder= /opt/echoes/foundation/resources/templates
 ksf.jenkins.useFolders=<%= @jenkins_use_folders %>
 ksf.jenkins.builsdPerJobLimit=<%= @jenkins_builds_per_job_limit %>
 ksf.jenkins.job.releasePattern=<%= @jenkins_job_release_pattern %>
 ksf.jenkins.job.featurePattern=<%= @jenkins_job_feature_pattern %>
+ksf.jenkins.job.namePattern=%{projectName}-%{branchName}
 
 # Build System
 ksf.buildSystem.defaultScript=<%= @build_system_default_script %>
@@ -141,14 +149,6 @@ ksf.dashboard.metrics.averageTimeOnSite=true
 ksf.git.branch.releasePattern=release-%{releaseVersion}
 ksf.git.branch.featurePattern=feat-%{featureId}-%{featureDescription}
 ksf.git.strictHostKeyChecking=false
-
-# Jenkins
-ksf.jenkins.job.namePattern=%{projectName}-%{branchName}
-
-ksf.redmine.hackBugApi = true
-
-ksf.foreman.puppetModuleInstallScript = /home/ksfuser/install_module.sh
-ksf.foreman.unusedIpScript = /home/ksfuser/unused_ip.sh
 
 # Allows to serve static content located in external locations
 # ksf.resources.staticLocation: list of locations separated by commas
