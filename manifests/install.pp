@@ -92,20 +92,22 @@ class komea_foundation::install inherits komea_foundation {
     status  => "/etc/init.d/foundation status | /bin/grep -q 'is running'",
   }
 
-  class {'nexus_artifact':
-    url      => "${nexus_url}",
-    password => "${nexus_password}",
-    username => "${nexus_username}",
-  }
-
-  nexus_artifact::artifact {'komea-foundation':
-    gav        => "${nexus_artifact_gav}",
-    repository => "${nexus_artifact_repository}",
-    output     => "${nexus_artifact_output}",
-    ensure     => content,
-    notify     => Service['foundation'],
-    mode       => 0700 
-  }
+  # should not be declared inside th emodule
+  #class {'nexus_artifact':
+  #  url      => "${nexus_url}",
+  #  password => "${nexus_password}",
+  #  username => "${nexus_username}",
+  #}
+  
+  #cannot be used unless the variables are exposed
+  #nexus_artifact::artifact {'komea-foundation':
+  #  gav        => "${nexus_artifact_gav}",
+  #  repository => "${nexus_artifact_repository}",
+  #  output     => "${nexus_artifact_output}",
+  #  ensure     => content,
+  #  notify     => Service['foundation'],
+  #  mode       => 0700 
+  #}
  
 }
 

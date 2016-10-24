@@ -10,6 +10,8 @@ class komea_foundation (
   $server_port                          = $komea_foundation::params::server_port,
   $ksf_security_internal_remember_token = $komea_foundation::params::ksf_security_internal_remember_token,
 
+  $redmine_api_access_key               = $komea_foundation::params::redmine_api_access_key,
+
   $nexus_url                            = $komea_foundation::params::nexus_url,
   $nexus_username                       = $komea_foundation::params::nexus_username,
   $nexus_password                       = $komea_foundation::params::nexus_password,

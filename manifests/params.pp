@@ -14,6 +14,8 @@ class komea_foundation::params {
   $server_port = "8888"
   $management_port = "8008"
   $jenkins_job_template = "templates/job.xml"
+ 
+  $redmine_api_access_key = "undef"
 
   $nexus_url = "undef"
   $nexus_username = "undef"
