@@ -131,9 +131,9 @@ ksf.security.cas.serviceHome = https://<%= @ksf_fqdn %>/foundation
 
 # Dashboard URL
 ksf.dashboard.url=https://<%= @ksf_fqdn %>/
-ksf.dashboard.metrics.url=<%= dashboard_metrics_url %>
-ksf.dashboard.organization.url=https://<%= @ksf_fqdn %>/organization
-ksf.dashboard.timeseries.url=https://<%= @ksf_fqdn %>/timeseries/
+ksf.dashboard.metrics.url=https://<%= @ksf_fqdn %>/api/dashboard/kpis/
+ksf.dashboard.organization.url=https://<%= @ksf_fqdn %>/api/dashboard/organization/
+ksf.dashboard.timeseries.url=https://<%= @ksf_fqdn %>/api/dashboard/timeseries/
 ksf.dashboard.customPeriod=35
 ksf.dashboard.projectType=project
 ksf.dashboard.jobType=job
@@ -144,7 +144,7 @@ ksf.dashboard.liferay.host=<%= @ksf_fqdn %>
 ksf.dashboard.liferay.defaultTemplateName=Komea Site Template
 ksf.dashboard.liferay.defaultCompanyWebId=liferay.com
 ksf.dashboard.liferay.defaultUserGroupName=komea
-ksf.dashboard.metrics.averageTimeOnSite=true
+ksf.dashboard.metrics.averageTimeOnSite=false
 
 # Git plug-in
 ksf.git.branch.releasePattern=release-%{releaseVersion}
