@@ -14,7 +14,7 @@ class komea_foundation::params {
   $server_port = "8888"
   $management_port = "8008"
   $jenkins_job_template = "templates/job.xml"
- 
+
   $redmine_api_access_key = "undef"
 
   $nexus_url = "undef"
@@ -43,12 +43,17 @@ class komea_foundation::params {
   $jenkins_builds_per_job_limit = 5
   $jenkins_job_release_pattern = "%{projectName}-release-%{releaseVersion}"
   $jenkins_job_feature_pattern = "%{projectName}-feat-%{featureId}-%{featureDescription}"
- 
+
   $build_system_default_script = "build.sh"
   $artifacts_publish_script = "publish.sh"
- 
+
   $git_working_directory = "/var/lib/ksf/git"
   $git_branch_release_pattern = "release-%{releaseVersion}"
   $git_branch_feature_pattern = "feat-%{featureId}-%{featureDescription}"
+
+  $dashboard_liferay_template      = "Standard Dashboard"
+  $dashboard_liferay_company_webid = "liferay.com"
+  $dashboard_liferay_user_group    = "komea"
+  $dashboard_metrics_average_time_on_site = false
 
 }

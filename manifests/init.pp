@@ -48,6 +48,10 @@ class komea_foundation (
   $git_branch_release_pattern           = $komea_foundation::params::git_branch_release_pattern,
   $git_branch_feature_pattern           = $komea_foundation::params::git_branch_feature_pattern,
 
+  $dashboard_liferay_template           = $komea_foundation::params::dashboard_liferay_template,
+  $dashboard_liferay_company_webid      = $komea_foundation::params::dashboard_liferay_company_webid,
+  $dashboard_liferay_user_group         = $komea_foundation::params::dashboard_liferay_user_group,
+  $dashboard_metrics_average_time_on_site = $komea_foundation::params::dashboard_metrics_average_time_on_site
 
 ) inherits komea_foundation::params {
 
@@ -56,4 +60,3 @@ class komea_foundation (
   class { "${module_name}::config": } ->
   anchor { "${module_name}::end": }
 }
-

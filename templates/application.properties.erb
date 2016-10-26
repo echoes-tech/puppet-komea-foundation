@@ -141,10 +141,10 @@ ksf.dashboard.username=<%= @superuser_login %>
 ksf.dashboard.password=<%= @superuser_password %>
 ksf.dashboard.liferay.protocol=https
 ksf.dashboard.liferay.host=<%= @ksf_fqdn %>
-ksf.dashboard.liferay.defaultTemplateName=Komea Site Template
-ksf.dashboard.liferay.defaultCompanyWebId=liferay.com
-ksf.dashboard.liferay.defaultUserGroupName=komea
-ksf.dashboard.metrics.averageTimeOnSite=false
+ksf.dashboard.liferay.defaultTemplateName=<%= @dashboard_liferay_template %>
+ksf.dashboard.liferay.defaultCompanyWebId=<%= @dashboard_liferay_company_webid %>
+ksf.dashboard.liferay.defaultUserGroupName=<%= @dashboard_liferay_user_group %>
+ksf.dashboard.metrics.averageTimeOnSite=<%= @dashboard_metrics_average_time_on_site %>
 
 # Git plug-in
 ksf.git.branch.releasePattern=release-%{releaseVersion}
