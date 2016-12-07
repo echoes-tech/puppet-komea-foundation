@@ -50,6 +50,6 @@
   ],
   "dependencies": [
     {"name":"puppetlabs/java","version_requirement":">= 1.4.3"},
-    {"name":"echoes-nexus-artifact","version_requirement":">=0.0.1"} 
+    {"name":"echoes/nexus_artifact","version_requirement":">=0.0.1"} 
   ]
 }
